@@ -6,6 +6,7 @@ out_xlsx = 'ColdCase.xlsx'
 # out_xlsx = 'Sport.xlsx'
 # out_xlsx = 'Uma.xlsx'
 # out_xlsx = 'Repair.xlsx'
+# out_xlsx = 'Office.xlsx'
 # out_xlsx = 'Sortavala.xlsx'
 
 with open("ColdCase.html", encoding='utf-8') as fp:
@@ -13,6 +14,7 @@ with open("ColdCase.html", encoding='utf-8') as fp:
 # with open("Sport.html", encoding='utf-8') as fp:
 # with open("Uma.html", encoding='utf-8') as fp:
 # with open("Repair.html", encoding='utf-8') as fp:
+# with open("office.html", encoding='utf-8') as fp:
 # with open("Sortavala.html", encoding='utf-8') as fp:
     soup = BeautifulSoup(fp, "html.parser")
 link = soup.find_all('div', class_='_3SLg2')

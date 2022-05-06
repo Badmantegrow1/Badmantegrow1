@@ -1,32 +1,27 @@
-s = 'abcc'
+s, s1 = 'abcddfff', ''
 a = 0
-b = 0
-c = 0
-d = 0
-list = []
-for _ in s:
-    if _ == 'a' and b == 0 and c == 0:
+n = s[0]
+for i in s:
+    if n == i:
         a += 1
     else:
-        if _ == 'b':
-            b += 1
-        else:
-            if _ == 'c':
-                c += 1
-            else:
-                if a != 0 and b != 0 or c != 0:
-                    d += 1
-if a != 0:
-    a = f'a{a}'
-    list.append(a)
-if b != 0:
-    b = f'b{b}'
-    list.append(b)
-if c != 0:
-    c = f'c{c}'
-    list.append(c)
-if d != 0:
-    d = f'a{d}'
-    list.append(d)
-for _ in list:
-    print(_, end='')
+        s1 += (n + str(a))
+        a = 1
+        n = i
+s1 += (n + str(a))
+print(s1)
+
+# end_s = ""
+# i = -1 * len(s)
+# while i < 0:
+#     k = 1
+#     if s[i] == s[i+1]:
+#         while s[i] == s[i+1] and i < -1:
+#             i = i + 1
+#             k = k + 1
+#         end_s = end_s + s[i] + str(k)
+#         i = i + 1
+#     else:
+#         end_s = end_s + s[i] + str(k)
+#         i = i + 1
+# print(end_s)
