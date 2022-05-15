@@ -5,9 +5,10 @@ def polygon(point, corner, length):
     angle = 0
     angle_corner = 15
     corner_polygon = 360 / corner
-
+    point_polygon = point
     for _ in range(corner):
         if _ < corner:
+
             if _ == 0:
                 angle = angle_corner
             else:
