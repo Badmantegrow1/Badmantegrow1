@@ -1,16 +1,19 @@
-def function(collection):
-    collection_id = id(collection)
-    for i in range(len(collection)):
-        if i % 2 == 0:
-            collection += (i,)
-        if collection_id == id(collection):
-            return collection[0:2]
-        else:
-            return collection[2:4]
+a = input().split()
+b = []
+while a[0] != 'end':
+    b.append(a)
+    a = input().split()
+print(b)
 
+# for i in range(len(b)):
+#     s = []
+#     for j in range(len(b)):
+#         s.append(b[i-1][j]+b[i-2][j]+b[i][j-1]+b[i][j-2])
+#     print(*s, end=' ')
+#     print()
 
-a = (7, 8, 9)
-print(function(a))
+#         break
+# res_1 = a[0:s]
 # numbers = [int(i) for i in input().split()]
 # numbers.sort()
 # num = []
