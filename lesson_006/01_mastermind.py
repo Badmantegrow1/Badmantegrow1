@@ -58,12 +58,19 @@ print('''Правила:
 получаем в названном числе одного «быка» и одну «корову».
 Очевидно, что число отгадано в том случае, если имеем 4 «быка».''')
 print()
+print()
 put_numbers()
 while True:
-    number = input('введите 4 однозначных непосторяющихся числа через пробел\n').split()
+    number = input('введите 4 однозначных неповторяющихся числа через пробел:\n').split()
     check_the_number(my_numbers=number)
     result()
     count_num()
     if is_gameover():
-        print('Вы угадали все числа!')
-        break
+        a = input('Победа! Вы угадали все числа! Продолжить? (да/нет):\n')
+        if a.lower() == 'да':
+            continue
+        elif a.lower() == "нет":
+            break
+        else:
+            print('Вы ввели неверное значение!')
+            break
