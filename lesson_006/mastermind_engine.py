@@ -7,6 +7,8 @@ count = 0
 
 
 def put_numbers():
+    global count
+    count = 0
     global _the_hidden_number
     _the_hidden_number = []
     list_rand = list(range(1, MAX_NUMBERS))

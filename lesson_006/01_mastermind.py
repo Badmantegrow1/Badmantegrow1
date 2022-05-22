@@ -61,14 +61,14 @@ print()
 print()
 put_numbers()
 while True:
-    number = input('введите 4 однозначных неповторяющихся числа через пробел:\n').split()
+    number = list(input('введите 4 неповторяющихся числа:\n'))
     check_the_number(my_numbers=number)
     result()
-    count_num()
     if is_gameover():
+        count_num()
         a = input('Победа! Вы угадали все числа! Продолжить? (да/нет):\n')
         if a.lower() == 'да':
-            continue
+            put_numbers()
         elif a.lower() == "нет":
             break
         else:
