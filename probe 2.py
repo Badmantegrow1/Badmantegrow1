@@ -71,17 +71,22 @@ class Home:
         return "В доме еды осталось {}, денег осталось {}".format(self.food, self.money)
 
 
-vasya = Man(name='Вася')
-petya = Man(name='Петя')
-my_home = Home()
-vasya.go_home(home=my_home)
-petya.go_home(home=my_home)
+citizens = [
+    Man(name='Вася'),
+    Man(name='Петя'),
+    Man(name='Ваня')
+    ]
 
-for day in range(1, 21):
+my_home = Home()
+for citizen in citizens:
+    citizen.go_home(home=my_home)
+
+
+for day in range(1, 366):
     print('================= День {} ===================='.format(day))
-    vasya.act()
-    petya.act()
+    for citizen in citizens:
+        citizen.act()
     print('================= В конце дня ===================')
-    print(vasya)
-    print(petya)
+    for citizen in citizens:
+        print(citizen)
     print(my_home)
