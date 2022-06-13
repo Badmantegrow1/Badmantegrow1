@@ -6,24 +6,23 @@ class Man:
     def __init__(self, name):
         self.name = name
         self.foolness = 50
-        self.food = 10
-        self.money = 50
+        self.home = None
 
     def __str__(self):
-        return 'Я {}, сытость {}'.format(
+        return '{} - сытость {}'.format(
             self.name, self.foolness)
 
     def eat(self):
-        if self.food >= 10:
+        if self.home.food >= 10:
             print("{} поел".format(self.name))
             self.foolness += 10
-            self.food -= 10
+            self.home.food -= 10
         else:
             print("{} нет еды".format(self.name))
 
     def work(self):
-        self.money += 50
-        print('{} сходил на работу, денег стало {}'.format(self.name, self.money))
+        self.home.money += 50
+        print('{} сходил на работу, денег стало {}'.format(self.name, self.home.money))
         self.foolness -= 10
 
     def game(self):
@@ -31,13 +30,18 @@ class Man:
         self.foolness -= 10
 
     def go_shop(self):
-        if self.money >= 50:
+        if self.home.money >= 50:
             print('{} сходил в магазин'.format(self.name))
-            self.money -= 50
-            self.food += 50
+            self.home.money -= 50
+            self.home.food += 50
             self.foolness -= 10
         else:
             print('Деньги кончились!')
+
+    def go_home(self, home):
+        self.home = home
+        self.foolness -= 10
+        print('{} Заехал в новый дом'.format(self.name))
 
     def act(self):
         if self.foolness <= 0:
@@ -46,9 +50,9 @@ class Man:
         dice = randint(1, 6)
         if self.foolness < 20:
             self.eat()
-        elif self.food < 20:
+        elif self.home.food < 20:
             self.go_shop()
-        elif self.money < 50:
+        elif self.home.money < 50:
             self.work()
         elif dice == 1:
             self.work()
@@ -58,11 +62,26 @@ class Man:
             self.game()
 
 
+class Home:
+    def __init__(self):
+        self.food = 50
+        self.money = 0
+
+    def __str__(self):
+        return "В доме еды осталось {}, денег осталось {}".format(self.food, self.money)
+
+
 vasya = Man(name='Вася')
 petya = Man(name='Петя')
-for day in range(1, 366):
+my_home = Home()
+vasya.go_home(home=my_home)
+petya.go_home(home=my_home)
+
+for day in range(1, 21):
     print('================= День {} ===================='.format(day))
     vasya.act()
     petya.act()
+    print('================= В конце дня ===================')
     print(vasya)
     print(petya)
+    print(my_home)
